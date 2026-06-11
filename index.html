@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2563eb" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="icon" type="image/png" href="/icon-192.png" />
+<link rel="apple-touch-icon" href="/icon-192.png" />
+<link rel="manifest" href="/manifest.json" />
+<title>NMA IT — AI Automation Services</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --blue: #2563eb; --dark: #0f172a; --gray: #64748b; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--dark); color: #f8fafc; line-height: 1.6; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  .hero { padding: 80px 0 50px; text-align: center; }
+  .hero h1 { font-size: clamp(30px,4vw,48px); max-width: 700px; margin: 0 auto 14px; }
+  .hero h1 span { color: var(--blue); }
+  .hero p { color: #94a3b8; font-size: 17px; max-width: 580px; margin: 0 auto 32px; }
+  .hero .cta, .hero .cta-alt { display: inline-block; padding: 14px 34px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; border: none; font-family: inherit; transition: all .2s; }
+  .hero .cta { background: var(--blue); color: #fff; }
+  .hero .cta:hover { background: #1d4ed8; }
+  .hero .cta-alt { background: transparent; border: 1px solid #334155; color: #f8fafc; margin-left: 12px; }
+  .hero-phone { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .hero-phone a { color: #f8fafc; font-size: 18px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; transition: color .2s; }
+  .hero-phone a:hover { color: var(--blue); }
+
+  /* SECTIONS */
+  .section { padding: 70px 0; }
+  .center { text-align: center; }
+  .tag { color: var(--blue); font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .section h2 { font-size: clamp(24px,3vw,34px); margin-bottom: 10px; }
+  .section .sub { color: #94a3b8; font-size: 15px; max-width: 540px; margin: 0 auto 40px; }
+
+  /* TIER CARDS */
+  .tier-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; align-items: start; margin: 40px 0; }
+  .tier { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 32px 24px; transition: all .2s; }
+  .tier:hover { border-color: #475569; transform: translateY(-4px); }
+  .tier-featured { border-color: var(--blue); position: relative; }
+  .tier-featured:hover { border-color: #3b82f6; }
+  .tier-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--blue); margin-bottom: 4px; }
+  .tier-name { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .tier-time { font-size: 13px; color: #94a3b8; margin-bottom: 8px; }
+  .tier-price { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+  .tier-desc { font-size: 13px; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
+  .tier ul { list-style: none; margin-bottom: 24px; }
+  .tier ul li { font-size: 14px; color: #cbd5e1; padding: 8px 0; border-bottom: 1px solid #1e293b; display: flex; align-items: center; gap: 8px; }
+  .tier ul li:last-child { border-bottom: none; }
+  .tier ul li .icon { width: 20px; text-align: center; flex-shrink: 0; }
+  .tier-cta { display: block; background: var(--blue); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; text-align: center; cursor: pointer; border: none; font-family: inherit; transition: background .2s; }
+  .tier-cta:hover { background: #1d4ed8; }
+  .tier-featured .tier-cta { background: #fff; color: #0f172a; }
+  .tier-featured .tier-cta:hover { background: #e2e8f0; }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .why-item { display: flex; gap: 12px; align-items: flex-start; }
+  .why-item .check { color: #22c55e; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .why-item p { font-size: 14px; color: #cbd5e1; }
+
+  /* CTA BOTTOM */
+  .cta-section { text-align: center; padding: 60px 0; border-top: 1px solid #1e293b; }
+  .cta-section h2 { font-size: clamp(22px,2.8vw,32px); margin-bottom: 8px; }
+  .cta-section p { color: #94a3b8; margin-bottom: 28px; max-width: 540px; margin-left: auto; margin-right: auto; }
+  .btn { display: inline-block; background: var(--blue); color: #fff; padding: 14px 34px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; border: none; font-family: inherit; }
+  .btn:hover { background: #1d4ed8; }
+
+  footer { padding: 40px 0; text-align: center; color: #475569; font-size: 13px; border-top: 1px solid #1e293b; }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 1000;
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: #0f172a; border: 1px solid #334155; border-radius: 16px;
+    max-width: 520px; width: 100%; padding: 40px 32px; position: relative; max-height: 90vh; overflow-y: auto;
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px; background: none; border: none;
+    color: #64748b; font-size: 24px; cursor: pointer; font-family: inherit;
+  }
+  .modal-close:hover { color: #fff; }
+  .modal h2 { font-size: 24px; margin-bottom: 4px; }
+  .modal .sub { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+  .modal label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #cbd5e1; }
+  .modal input, .modal select, .modal textarea {
+    width: 100%; padding: 11px 14px; border: 1px solid #334155; border-radius: 8px;
+    font-size: 14px; font-family: inherit; background: #1e293b; color: #f8fafc;
+    margin-bottom: 16px; outline: none; transition: border-color .2s;
+  }
+  .modal input:focus, .modal select:focus, .modal textarea:focus { border-color: var(--blue); }
+  .msg-helper { margin-bottom: 12px; }
+  .prompt-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .chip { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 7px 14px; font-size: 12px; color: #94a3b8; cursor: pointer; font-family: inherit; transition: all .2s; white-space: nowrap; }
+  .chip:hover { border-color: var(--blue); color: var(--blue); background: rgba(37,99,235,.1); }
+  .modal textarea { resize: vertical; min-height: 80px; }
+  .modal .submit-btn {
+    width: 100%; padding: 13px; background: var(--blue); color: #fff; border: none; border-radius: 8px;
+    font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .2s;
+  }
+  .modal .submit-btn:hover { background: #1d4ed8; }
+  .modal .submit-btn:disabled { opacity: .5; cursor: not-allowed; }
+  .modal .success-msg { text-align: center; padding: 40px 20px; }
+  .modal .success-msg .big { font-size: 48px; margin-bottom: 12px; }
+  .modal .success-msg h2 { margin-bottom: 8px; }
+  .modal .success-msg p { color: #94a3b8; font-size: 14px; }
+
+  /* FLOATING CTA */
+  .float-cta {
+    position: fixed; bottom: 24px; right: 24px; z-index: 900;
+    background: var(--blue); color: #fff; border: none; border-radius: 50px;
+    padding: 14px 28px; font-size: 14px; font-weight: 600; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37,99,235,.4); font-family: inherit;
+    display: flex; align-items: center; gap: 8px; transition: all .2s;
+  }
+  .float-cta:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,99,235,.5); }
+
+  /* CHAT BOT */
+  .chat-toggle {
+    position: fixed; bottom: 80px; right: 24px; z-index: 900;
+    width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg,#2563eb,#1d4ed8);
+    color: #fff; border: none; font-size: 22px; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37,99,235,.4); display: flex; align-items: center; justify-content: center;
+    transition: all .2s; font-family: inherit;
+  }
+  .chat-toggle:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,99,235,.5); }
+  .chat-toggle .badge {
+    position: absolute; top: -4px; right: -4px; width: 18px; height: 18px;
+    background: #22c55e; border-radius: 50%; font-size: 10px; display: flex;
+    align-items: center; justify-content: center; color: #fff; font-weight: 700;
+  }
+  .chat-widget {
+    display: none; position: fixed; bottom: 140px; right: 24px; z-index: 999;
+    width: 340px; max-height: 460px; background: #0f172a; border: 1px solid #334155;
+    border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.5);
+    flex-direction: column; font-family: inherit;
+  }
+  .chat-widget.open { display: flex; }
+  .chat-head {
+    background: linear-gradient(135deg,#2563eb,#1d4ed8); padding: 14px 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .chat-head .avatar { width: 32px; height: 32px; background: rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .chat-head h3 { font-size: 13px; color: #fff; margin: 0; font-weight: 600; }
+  .chat-head p { font-size: 11px; color: rgba(255,255,255,.7); margin: 0; }
+  .chat-head .close { margin-left: auto; background: none; border: none; color: rgba(255,255,255,.7); font-size: 18px; cursor: pointer; }
+  .chat-msgs { flex: 1; padding: 14px; overflow-y: auto; max-height: 300px; display: flex; flex-direction: column; gap: 8px; }
+  .chat-msgs .msg { padding: 8px 12px; border-radius: 12px; font-size: 13px; line-height: 1.4; max-width: 85%; }
+  .chat-msgs .bot { background: #1e293b; color: #e2e8f0; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .chat-msgs .user { background: #2563eb; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .chat-msgs .typing { background: #1e293b; color: #94a3b8; align-self: flex-start; font-style: italic; font-size: 12px; border-radius: 12px; padding: 8px 14px; }
+  .chat-foot { display: flex; padding: 10px; gap: 8px; border-top: 1px solid #1e293b; }
+  .chat-foot input { flex: 1; padding: 10px 12px; border: 1px solid #334155; border-radius: 8px; background: #1e293b; color: #f8fafc; font-size: 13px; font-family: inherit; outline: none; }
+  .chat-foot input:focus { border-color: var(--blue); }
+  .chat-foot button { background: var(--blue); color: #fff; border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 14px; }
+  .chat-foot button:hover { background: #1d4ed8; }
+  .chat-foot button:disabled { opacity: .5; cursor: not-allowed; }
+
+  @media (max-width: 768px) { .tier-grid, .why-grid { grid-template-columns: 1fr; } .evidence-grid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 600px) { .evidence-grid { grid-template-columns: 1fr !important; } }
+  @media (max-width: 600px) {
+    .hero .cta-alt { margin-left: 0; margin-top: 10px; display: inline-block; }
+    .float-cta { padding: 12px 20px; font-size: 13px; bottom: 16px; right: 16px; }
+    .modal { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div style="padding:16px 0;border-bottom:1px solid #1e293b;position:sticky;top:0;z-index:100;background:var(--dark);backdrop-filter:blur(12px);background:rgba(15,23,42,.92);">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;">
+    <span style="color:#f8fafc;font-weight:700;font-size:18px;">NMA <span style="color:var(--blue);">IT</span></span>
+    <nav style="display:flex;gap:24px;align-items:center;">
+      <a href="/#tiers" style="color:#94a3b8;font-size:14px;font-weight:500;text-decoration:none;">Services</a>
+      <a href="/blog/" style="color:#94a3b8;font-size:14px;font-weight:500;text-decoration:none;">Blog</a>
+      <a href="/NMA-IT-App.apk" style="color:#94a3b8;font-size:13px;font-weight:500;text-decoration:none;border:1px solid #334155;padding:6px 14px;border-radius:6px;" download>📱 App</a>
+      <a href="/" onclick="event.preventDefault();openModal();" style="background:var(--blue);color:#fff;padding:8px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;">Get Started</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div style="display:inline-block;background:#1e293b;border:1px solid #334155;border-radius:20px;padding:6px 16px;font-size:13px;color:#22c55e;margin-bottom:20px;">⚡ Startup-Friendly AI Automation</div>
+    <h1>We Build AI Automation<br><span>That Actually Works.</span></h1>
+    <p>From quick wins to custom AI agents — we help small and medium businesses automate the boring stuff so you can focus on what matters.</p>
+    <div>
+      <button class="cta" onclick="openModal()">Book a Free Consultation</button>
+      <a href="#tiers" class="cta-alt">See Plans ↓</a>
+    </div>
+    <div style="margin-top:16px;">
+      <a href="/NMA-IT-App.apk" download style="display:inline-flex;align-items:center;gap:8px;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:10px 20px;text-decoration:none;transition:all .2s;">
+        <span style="font-size:24px;">📱</span>
+        <span style="text-align:left;">
+          <span style="display:block;color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:1px;">Download for Android</span>
+          <span style="display:block;color:#f8fafc;font-size:14px;font-weight:600;">NMA IT App — 3 MB</span>
+        </span>
+      </a>
+    </div>
+    <div class="hero-phone">
+      <span>📞</span>
+      <a href="tel:+12407579230">+1 (240) 757-9230</a>
+      <span style="color:#94a3b8;font-size:13px;margin-left:4px;">— Call our AI sales agent</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section" id="tiers">
+  <div class="wrap">
+    <div class="center">
+      <div class="tag">Services</div>
+      <h2>Three Tiers. One Goal: Save You Time.</h2>
+      <p class="sub">Pick the level that fits your needs. Every engagement starts with a free discovery call.</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-label">Tier 1</div>
+        <div class="tier-name">Quick Wins</div>
+        <div class="tier-time">1–2 week projects</div>
+        <div class="tier-price">$500–$2,000</div>
+        <div class="tier-desc">Perfect for businesses taking their first step into automation.</div>
+        <ul>
+          <li><span class="icon">🤖</span> Custom GPT / AI Assistant — branded chatbot for FAQ, lead gen, support</li>
+          <li><span class="icon">📋</span> Email Auto-Responder — smart triage + template responses</li>
+          <li><span class="icon">📄</span> Form / Invoice Parser — extract data from PDFs → Google Sheets or CRM</li>
+          <li><span class="icon">🔗</span> Zapier / Make Automation — connect Slack, Gmail, CRM, and more</li>
+        </ul>
+        <button class="tier-cta" onclick="openModal()">Get Started</button>
+      </div>
+      <div class="tier tier-featured">
+        <div class="tier-label">Tier 2</div>
+        <div class="tier-name">Growth Automations</div>
+        <div class="tier-time">2–4 week projects</div>
+        <div class="tier-price">$2,000–$5,000</div>
+        <div class="tier-desc">For businesses ready to scale with smarter workflows.</div>
+        <ul>
+          <li><span class="icon">💬</span> AI Customer Support Bot — trained on your docs, handles 80% of tickets</li>
+          <li><span class="icon">📊</span> Automated Reporting — multi-source data → dashboard + daily email</li>
+          <li><span class="icon">🧠</span> Lead Scoring Bot — auto-qualify leads from web, email, LinkedIn</li>
+          <li><span class="icon">🔄</span> Multi-Step Workflow — custom approval chains, data pipes, notifications</li>
+        </ul>
+        <button class="tier-cta" onclick="openModal()">Most Popular →</button>
+      </div>
+      <div class="tier">
+        <div class="tier-label">Tier 3</div>
+        <div class="tier-name">Custom Solutions</div>
+        <div class="tier-time">4–8 week projects</div>
+        <div class="tier-price">$5,000–$15,000</div>
+        <div class="tier-desc">Tailor-made automation for complex business needs.</div>
+        <ul>
+          <li><span class="icon">🏗️</span> Custom AI Agent — domain-specific agent trained on your data</li>
+          <li><span class="icon">🔌</span> API Integration Platform — connect legacy systems with modern APIs</li>
+          <li><span class="icon">📈</span> Predictive Pipeline — ML-powered forecasting for inventory, sales, churn</li>
+        </ul>
+        <button class="tier-cta" onclick="openModal()">Contact Us</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" style="background:#1e293b;">
+  <div class="wrap">
+    <div class="center">
+      <div class="tag">Why NMA IT</div>
+      <h2>Built by a Team That Gets It</h2>
+      <p class="sub">We're not a giant consultancy. We're a small team that moves fast and delivers real results.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><span class="check">✓</span><p><strong>Startup-friendly.</strong> No enterprise bloat. No long contracts. No jargon.</p></div>
+      <div class="why-item"><span class="check">✓</span><p><strong>Fast delivery.</strong> Most projects launch in 1–4 weeks, not months.</p></div>
+      <div class="why-item"><span class="check">✓</span><p><strong>Transparent pricing.</strong> Fixed-price quotes. No hidden fees.</p></div>
+      <div class="why-item"><span class="check">✓</span><p><strong>Full-stack capability.</strong> From chatbots to APIs to WordPress — we cover the stack.</p></div>
+      <div class="why-item"><span class="check">✓</span><p><strong>Local & remote.</strong> Based in Maryland, serving businesses everywhere.</p></div>
+      <div class="why-item"><span class="check">✓</span><p><strong>Post-launch support.</strong> We don't disappear after delivery. Monthly maintenance available.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="wrap">
+    <div class="center">
+      <div class="tag">Process</div>
+      <h2>How It Works</h2>
+      <p class="sub">Four steps from idea to automation running in production.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+      <div style="text-align:center;background:#1e293b;border:1px solid #334155;border-radius:10px;padding:24px 16px;">
+        <div style="width:36px;height:36px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin:0 auto 12px;">1</div>
+        <h3 style="font-size:14px;margin-bottom:4px;font-weight:600;">Discovery</h3>
+        <p style="font-size:12px;color:#94a3b8;margin:0;">Free 30-min call to identify your biggest automation opportunities.</p>
+      </div>
+      <div style="text-align:center;background:#1e293b;border:1px solid #334155;border-radius:10px;padding:24px 16px;">
+        <div style="width:36px;height:36px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin:0 auto 12px;">2</div>
+        <h3 style="font-size:14px;margin-bottom:4px;font-weight:600;">Proposal</h3>
+        <p style="font-size:12px;color:#94a3b8;margin:0;">Fixed-price quote with clear scope, timeline, and deliverables.</p>
+      </div>
+      <div style="text-align:center;background:#1e293b;border:1px solid #334155;border-radius:10px;padding:24px 16px;">
+        <div style="width:36px;height:36px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin:0 auto 12px;">3</div>
+        <h3 style="font-size:14px;margin-bottom:4px;font-weight:600;">Build</h3>
+        <p style="font-size:12px;color:#94a3b8;margin:0;">We build, test, and deploy with zero disruption to your operations.</p>
+      </div>
+      <div style="text-align:center;background:#1e293b;border:1px solid #334155;border-radius:10px;padding:24px 16px;">
+        <div style="width:36px;height:36px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin:0 auto 12px;">4</div>
+        <h3 style="font-size:14px;margin-bottom:4px;font-weight:600;">Optimize</h3>
+        <p style="font-size:12px;color:#94a3b8;margin:0;">We monitor, refine, and support — because automation is never done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" style="background:#1e293b;">
+  <div class="wrap">
+    <div class="center">
+      <div class="tag">Evidence of Work</div>
+      <h2>See What We've Built</h2>
+      <p class="sub">A curated portfolio showcasing our live deployments, automation pipelines, and full-stack engineering work.</p>
+    </div>
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="evidence-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div style="background:#0f172a;border:1px solid #334155;border-radius:14px;padding:22px 18px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:8px;">📄</div>
+          <h3 style="font-size:14px;margin-bottom:4px;">Portfolio 2026</h3>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:12px;line-height:1.4;">Platform ecosystem, projects, infrastructure &amp; services.</p>
+          <a href="/nma-it-portfolio-2026.pdf" target="_blank" style="font-size:11px;color:var(--blue);font-weight:600;text-decoration:none;">📥 Download (61 KB)</a>
+        </div>
+        <div style="background:#0f172a;border:1px solid #334155;border-radius:14px;padding:22px 18px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:8px;">🏗️</div>
+          <h3 style="font-size:14px;margin-bottom:4px;">Tech Architecture</h3>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:12px;line-height:1.4;">OpenClaw, Discord bots, AI model layer &amp; agents.</p>
+          <a href="/nma-it-technical-architecture.pdf" target="_blank" style="font-size:11px;color:var(--blue);font-weight:600;text-decoration:none;">📥 Download (591 KB)</a>
+        </div>
+        <div style="background:#0f172a;border:1px solid #334155;border-radius:14px;padding:22px 18px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:8px;">🤖</div>
+          <h3 style="font-size:14px;margin-bottom:4px;">AI Assistance v2</h3>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:12px;line-height:1.4;">423 API req, 28M tokens, 3 AI models — real data.</p>
+          <a href="/nma-it-ai-assistance-v2.pdf" target="_blank" style="font-size:11px;color:var(--blue);font-weight:600;text-decoration:none;">📥 Download (574 KB)</a>
+        </div>
+        <div style="background:#0f172a;border:1px solid #334155;border-radius:14px;padding:22px 18px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:8px;">⚙️</div>
+          <h3 style="font-size:14px;margin-bottom:4px;">AI Setup Overview</h3>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:12px;line-height:1.4;">Claude AI core, Discord, 24/7 support breakdown.</p>
+          <a href="/nma-it-ai-assistance-setup.pdf" target="_blank" style="font-size:11px;color:var(--blue);font-weight:600;text-decoration:none;">📥 Download (239 KB)</a>
+        </div>
+        <div style="background:#0f172a;border:1px solid #334155;border-radius:14px;padding:22px 18px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:8px;">🎬</div>
+          <h3 style="font-size:14px;margin-bottom:4px;">Kendro Studio Pipeline</h3>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:12px;line-height:1.4;">5 AI agents, 4 Discord channels — auto YouTube publishing.</p>
+          <a href="/kendro-studio-youtube-pipeline.pdf" target="_blank" style="font-size:11px;color:var(--blue);font-weight:600;text-decoration:none;">📥 Download (294 KB)</a>
+        </div>
+        <div style="background:#0f172a;border:1px solid #334155;border-radius:14px;padding:22px 18px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:8px;">📝</div>
+          <h3 style="font-size:14px;margin-bottom:4px;">Latest Blog Post</h3>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:12px;line-height:1.4;">$500 to $15K — a practical guide to choosing your first AI automation project.</p>
+          <a href="/blog/choosing-first-ai-automation/" style="font-size:11px;color:var(--blue);font-weight:600;text-decoration:none;">📖 Read the Guide →</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn" style="background:transparent;border:1px solid #334155;color:#f8fafc;font-size:14px;padding:10px 24px;" onclick="window.open('https://nma-it.com','_blank')">🌐 Visit Main Site</button>
+        <a href="/NMA-IT-App.apk" class="btn" style="background:#2563eb;border:none;color:#fff;font-size:14px;padding:10px 24px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;" download>📱 Get Android App (3 MB)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Ready to Automate?</h2>
+    <p>Book a free 30-minute discovery call. No pitch, no pressure — just honest advice on what AI automation can do for your business.</p>
+    <button class="btn" onclick="openModal()">Book Your Free Call →</button>
+  </div>
+</section>
+
+<footer>&copy; 2026 NMA IT Services. All rights reserved.</footer>
+
+<!-- FLOATING CHAT TOGGLE -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+  💬
+  <span class="badge">1</span>
+</button>
+
+<!-- CHAT WIDGET -->
+<div class="chat-widget" id="chatWidget">
+  <div class="chat-head">
+    <div class="avatar">🤖</div>
+    <div>
+      <h3>NMA IT Assistant</h3>
+      <p>AI Automation Sales Bot</p>
+    </div>
+    <button class="close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-msgs" id="chatMessages">
+    <div class="msg bot">Hi! 👋 I'm the NMA IT sales assistant. I can help you find the right AI automation solution for your business. What are you looking to automate?</div>
+  </div>
+  <div class="chat-foot">
+    <input type="text" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter') sendChat()" />
+    <button id="chatSendBtn" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<!-- FLOATING CTA -->
+<button class="float-cta" onclick="openModal()">💬 Get Started</button>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <div id="modalForm">
+      <h2>Let's Talk Automation</h2>
+      <p class="sub">Tell us about your project and we'll get back to you within 24 hours.</p>
+
+      <form id="contactForm" onsubmit="return submitForm(event)">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="e.g. John Smith" />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="john@company.com" />
+
+        <label for="interest">Interest</label>
+        <select id="interest" name="interest">
+          <option value="Quick Wins (Tier 1)">Quick Wins — $500–$2,000</option>
+          <option value="Growth Automations (Tier 2)">Growth Automations — $2,000–$5,000</option>
+          <option value="Custom Solutions (Tier 3)">Custom Solutions — $5,000–$15,000</option>
+          <option value="Not Sure Yet">Not Sure Yet — Let's Discuss</option>
+        </select>
+
+        <label for="whatsapp">WhatsApp / Phone (optional)</label>
+        <input type="text" id="whatsapp" name="whatsapp" placeholder="+1 555-123-4567" />
+
+        <label for="message">Tell Us About Your Project</label>
+        <div class="msg-helper">
+          <p style="font-size:13px;color:#94a3b8;margin-bottom:8px;">⚡ Quick templates — click one to get started:</p>
+          <div class="prompt-chips">
+            <button type="button" class="chip" onclick="fillTemplate('chatbot')">🤖 I need a chatbot</button>
+            <button type="button" class="chip" onclick="fillTemplate('workflow')">⚙️ Workflow automation</button>
+            <button type="button" class="chip" onclick="fillTemplate('email')">📧 Email automation</button>
+            <button type="button" class="chip" onclick="fillTemplate('data')">📊 Data processing</button>
+            <button type="button" class="chip" onclick="fillTemplate('custom')">🔧 Custom project</button>
+          </div>
+        </div>
+        <textarea id="message" name="message" required placeholder="What are you looking to automate? Any specific tools or workflows?"></textarea>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Send Request →</button>
+      </form>
+    </div>
+
+    <div id="modalSuccess" style="display:none;">
+      <div class="success-msg">
+        <div class="big">🎉</div>
+        <h2>Thanks, You're On the List!</h2>
+        <p>We've received your request and will reach out within 24 hours. Keep an eye on your inbox for a message from <strong>admin@nma-it.com</strong>.</p>
+        <button class="btn" style="margin-top:20px;" onclick="closeModal()">Got It</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() { document.getElementById('contactModal').classList.add('open'); }
+function closeModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.getElementById('modalForm').style.display = '';
+  document.getElementById('modalSuccess').style.display = 'none';
+  document.getElementById('contactForm').reset();
+}
+
+const templates = {
+  chatbot: `I'm looking for an AI-powered chatbot to handle customer inquiries on our website. We get about [number] questions per day and want to automate responses for FAQs, lead qualification, and basic support. Our main tools are [list your tools]. Ideally, we'd like it trained on our documentation and product pages.`,
+  workflow: `We have a manual workflow that involves [describe what you do manually — approvals, data entry, notifications, etc.]. It currently takes about [time] per day/week and involves [tools/platforms]. We'd like to automate this so it runs without manual intervention and sends alerts when exceptions occur.`,
+  email: `We need help automating our email communications. This includes [auto-responding to inquiries / triaging incoming emails / sending follow-ups / newsletter management]. We use [email platform] and would like the automation to integrate with our [CRM / other tools].`,
+  data: `We need to automate the processing of [documents / invoices / forms / reports] that we receive in [PDF / CSV / email / web forms]. The data should be extracted, validated, and sent to [Google Sheets / database / CRM]. We process approximately [volume] per [day/week/month].`,
+  custom: `We have a specific automation challenge we'd like help with:
+
+• What we want to automate:
+• Current process (manual or partially automated):
+• Tools/platforms involved:
+• Expected timeline:
+• Budget range:
+
+Looking forward to discussing how NMA IT can help.`
+};
+
+function fillTemplate(key) {
+  document.getElementById('message').value = templates[key];
+  document.getElementById('message').focus();
+}
+
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending...';
+
+  const form = document.getElementById('contactForm');
+  const data = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    interest: form.interest.value,
+    whatsapp: form.whatsapp.value.trim(),
+    message: form.message.value.trim(),
+  };
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please email us directly at rumy103040@gmail.com');
+    }
+  } catch {
+    alert('Connection error. Please email us directly at rumy103040@gmail.com');
+  }
+  btn.disabled = false; btn.textContent = 'Send Request →';
+}
+
+// ─── CHATBOT ──────────────────────────────────────────
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatWidget').classList.toggle('open', chatOpen);
+  document.querySelector('.chat-toggle .badge').style.display = 'none';
+  if (chatOpen) setTimeout(() => document.getElementById('chatInput').focus(), 300);
+}
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const msgs = document.getElementById('chatMessages');
+  const btn = document.getElementById('chatSendBtn');
+
+  // Add user message
+  msgs.innerHTML += '<div class="msg user">' + escapeHtml(msg) + '</div>';
+  input.value = '';
+  msgs.scrollTop = msgs.scrollHeight;
+
+  // Show typing indicator
+  msgs.innerHTML += '<div class="msg typing" id="typing">NMA IT Assistant is typing...</div>';
+  msgs.scrollTop = msgs.scrollHeight;
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/chatbot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: [{ role: 'user', content: msg }] })
+    });
+    const data = await res.json();
+
+    // Remove typing
+    document.getElementById('typing')?.remove();
+
+    if (data.reply) {
+      msgs.innerHTML += '<div class="msg bot">' + escapeHtml(data.reply) + '</div>';
+    } else {
+      msgs.innerHTML += '<div class="msg bot">Sorry, I had trouble responding. Please try again or use the contact form.</div>';
+    }
+  } catch {
+    document.getElementById('typing')?.remove();
+    msgs.innerHTML += '<div class="msg bot">Connection error. Please use the contact form below.</div>';
+  }
+
+  msgs.scrollTop = msgs.scrollHeight;
+  btn.disabled = false;
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+
+  <!-- VAPI VOICE WIDGET (left side) -->
+  <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+  <vapi-widget
+    public-key="903ffbab-e2a4-43de-9db6-772c9d2933f5"
+    assistant-id="93aa1fbb-6ea6-4e35-9af9-fa8bf61af796"
+    mode="hybrid"
+    theme="dark"
+    size="compact"
+    position="bottom-left"
+    color-accent="#2563eb"
+    cta-button-color="#0f172a"
+    cta-button-text-color="#ffffff"
+    title="NMA IT Voice"
+    cta-title="📞 Call our AI"
+    cta-subtitle="Talk to Leo now"
+    chat-placeholder="Ask about our AI automation services..."
+  ></vapi-widget>
+<script>
+// Register service worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(reg => {
+      console.log('SW registered:', reg.scope);
+    }).catch(err => {
+      console.log('SW registration failed:', err);
+    });
+  });
+}
+</script>
+</body>
+</html>

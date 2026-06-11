@@ -1,0 +1,30 @@
+{
+  "name": "NMA IT — AI Automation Services",
+  "short_name": "NMA IT",
+  "description": "AI automation services for small and medium businesses. Chatbots, workflows, custom AI agents.",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "related_applications": []
+}
